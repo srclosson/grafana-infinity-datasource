@@ -1,16 +1,19 @@
 {
   "name": "grafana-infinity-datasource",
-  "version": "0.6.0",
-  "description": "JSON, CSV, XML, GraphQL & HTML datasource for Grafana. Do infinite things with Grafana.",
+  "version": "0.4.0",
+  "description": "Infinity data source plugin for Grafana. Do infinite things with Grafana. HTML, CSV, JSON & GraphQL Scrapping.",
   "main": "dist/module.js",
   "scripts": {
     "build": "grafana-toolkit plugin:build",
-    "sign": "grafana-toolkit plugin:sign",
+    "build:ci": "grafana-toolkit plugin:ci-build --finish",
+    "build:ci-package": "grafana-toolkit plugin:ci-package",
     "test": "grafana-toolkit plugin:test",
     "dev": "grafana-toolkit plugin:dev",
     "watch": "grafana-toolkit plugin:dev --watch",
     "docs:dev": "vuepress dev",
-    "docs:build": "vuepress build"
+    "docs:build": "vuepress build",
+    "backend": "./node_modules/@grafana/tsbackend/bin/grafana-tsbackend gpx_infinity_darwin_amd64",
+    "restart:backend": "kill $(ps -ef | grep gpx_infinity_darwin_amd64 | grep -v grep | awk '{ print $2 }')"   
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,6 @@
     "graphql",
     "csv",
     "html",
-    "xml",
     "url",
     "scraping",
     "web scraping"
@@ -44,18 +46,18 @@
     "@grafana/ui": "7.1.5",
     "cheerio": "^1.0.0-rc.3",
     "csv-parse": "^4.12.0",
-    "jsonpath-plus": "^4.0.0",
     "lodash": "^4.17.19",
     "mathjs": "^7.2.0",
-    "xml2js": "^0.4.23"
+    "grpc": "^1.24.3",
+    "google-protobuf": "^3.12.2",
+    "@grafana/tsbackend": "grafana/grafana-plugin-sdk-typescript"
   },
   "devDependencies": {
-    "@grafana/toolkit": "7.3.3",
+    "@grafana/toolkit": "7.1.5",
     "@types/cheerio": "^0.22.21",
     "@types/grafana": "github:CorpGlory/types-grafana.git",
     "@types/lodash": "^4.14.149",
     "@types/mathjs": "^6.0.5",
-    "@types/xml2js": "^0.4.6",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",

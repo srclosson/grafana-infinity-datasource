@@ -2,20 +2,6 @@
 
 Change history of the project. All the feature updates, bug fixes, breaking changes will be documented here.
 
-## [ 0.6.0 ]
-
-- Plugin signed
-- JSONPath support for JSON root selector
-- Autogenerate columns for CSV, JSON
-- Support for Unix/epoch seconds format
-- Support for filtering rows
-- Variable Query support
-- Logo updated
-
-## [ 0.5.0 ]
-
-- XML Support
-
 ## [ 0.4.0 ]
 
 - Registered / Global Queries
